@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MultiRoyale</string>
+    <string name="action_settings">Settings</string>
+    <string name="profile_remove_sure">Are you sure to remove the profile</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="ok">Create</string>
+    <string name="enter_new_profile_name">Enter new profile name</string>
+    <string name="cancel">Cancel</string>
+    <string name="wrong_profile_name">Wrong profile name</string>
+    <string name="profile_already_exists">Profile with the name already exists</string>
+</resources>
