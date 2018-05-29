@@ -22,7 +22,8 @@ if [ "$APP_USER" != "$USER" ]; then
 	run am force-stop "$PACKAGE"
 
 	SCRIPT="$(cd "$(dirname "$0")"; pwd -P)/$(basename "$0")"
-	TEMP=`mktemp`
+	#TEMP=`mktemp`
+	TEMP="$CURRENT_PROFILE_DIR/cache/clashroyale.sh"
 
 	run cp "$SCRIPT" "$TEMP"
 	run chown "$APP_USER:$APP_GROUP" $TEMP
