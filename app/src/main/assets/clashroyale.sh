@@ -30,7 +30,7 @@ if [ "$APP_USER" != "$USER" ]; then
 	run su "$APP_USER" -c "/system/bin/sh $TEMP $@"
 	run rm "$TEMP"
 	
-	INTENT=$(cmd package resolve-activity --brief -c android.intent.category.LAUNCHER $PACKAGE | busybox tail -1)
+	INTENT=$(cmd package resolve-activity --brief -c android.intent.category.LAUNCHER $PACKAGE | tail -n1)
 	run am start -n "$INTENT"
 	exit 0
 fi

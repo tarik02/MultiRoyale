@@ -15,6 +15,10 @@ import kotlinx.android.synthetic.main.main_activity.*
 import java.io.*
 
 class MainActivity : AppCompatActivity(), MainProfilesAdapter.Listener {
+    companion object {
+        const val SCRIPT_VERSION = "1.0.1"
+    }
+
     val adapter = MainProfilesAdapter(this)
     lateinit var script: File
 
@@ -23,8 +27,11 @@ class MainActivity : AppCompatActivity(), MainProfilesAdapter.Listener {
         setContentView(R.layout.main_activity)
         setSupportActionBar(toolbar)
 
-        script = File(filesDir, "clashroyale-1.0.0.sh")
-        if (!script.exists()) {
+        val versionFile = File(filesDir, "version.txt")
+        script = File(filesDir, "clashroyale.sh")
+        if (!versionFile.exists() || !script.exists() || versionFile.readText() != SCRIPT_VERSION) {
+            versionFile.writeText(SCRIPT_VERSION)
+
             val out = FileOutputStream(script)
             val `in` = assets.open("clashroyale.sh")
             val temp = ByteArray(1024)
